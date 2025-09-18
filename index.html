@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pro To-Do (v2)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="me">
+        <div class="avatar">CS</div>
+        <div>
+          <div class="name" id="sbTitle">My Tasks</div>
+          <div class="muted small" id="sbSub">Stay focused</div>
+        </div>
+      </div>
+
+      <div class="side-controls">
+        <button id="darkModeBtn" class="ghost" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <select id="language" aria-label="Language">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+
+      <nav class="nav">
+        <button data-view="today" class="active">
+          <span class="left"><i class="fa-regular fa-sun"></i><span id="navToday">Today</span></span>
+          <span class="pill" id="count-today">0</span>
+        </button>
+        <button data-view="upcoming">
+          <span class="left"><i class="fa-regular fa-calendar"></i><span id="navUpcoming">Upcoming</span></span>
+          <span class="pill" id="count-upcoming">0</span>
+        </button>
+        <button data-view="all">
+          <span class="left"><i class="fa-regular fa-list-check"></i><span id="navAll">All</span></span>
+          <span class="pill" id="count-all">0</span>
+        </button>
+        <button data-view="completed">
+          <span class="left"><i class="fa-regular fa-circle-check"></i><span id="navCompleted">Completed</span></span>
+          <span class="pill" id="count-completed">0</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="toolbar">
+        <div class="title" id="pageTitle">To-do List</div>
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="search" placeholder="Search tasks" />
+        </div>
+        <button class="add" id="openComposer"><i class="fa-solid fa-plus"></i> <span id="btnAddNew">Add New Task</span></button>
+      </div>
+
+      <!-- Composer -->
+      <div class="composer" id="composer" hidden>
+        <input id="newTitle" placeholder="Task title" />
+        <input id="newDue" type="date" />
+        <select id="newPriority">
+          <option value="low">Low — Normal</option>
+          <option value="medium">Medium — Important</option>
+          <option value="high">High — Urgent</option>
+        </select>
+        <button class="go" id="addTask"><i class="fa-solid fa-check"></i> <span id="btnAdd">Add</span></button>
+      </div>
+
+      <!-- Filters row (All/Active/Completed) -->
+      <div class="filters">
+        <button data-filter="all" class="active" id="fAll">All</button>
+        <button data-filter="active" id="fActive">Active</button>
+        <button data-filter="completed" id="fCompleted">Completed</button>
+      </div>
+
+      <div class="list" id="list"></div>
+      <div class="foot" id="counter">0 tasks left</div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
